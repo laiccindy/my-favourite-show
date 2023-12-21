@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!--Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  </head>
+  <body>
+
+    <%- include('../partials/header'); %>
+
+    <div class="container-fluid pt-1 pb-1 bg-light">
+
+      <div class="container-fluid p-3 my-20 bg-white border text-center text-warning">
+        <h1>The Gilded Age</h1>
+      </div>
+      
+      <!---->
+      <div class="container-fluid mt-8 bg-dark pt-3 pb-3 px-3 text-white">
+        <div class="container">
+          <img class="mx-auto d-block" src="/cast-photos/thegildedage-01.jpg" width="auto" height="400">
+        <br>
+        <p><%= showInfo.synopsis %></p>
+        <br>
+        <p style="display: inline-block;">Creator---   </p>
+        <p style="display: inline-block;" class="text-warning"><%= showInfo.creator %></p>
+        <br>
+        <p style="display: inline-block;">Genre---</p>
+        <% for(let i=0; i<showInfo.genre.length;i++){ %>
+          <p style="display: inline-block;" class="text-warning"><%= showInfo.genre[i] %> | </p>
+        <% } %>
+        <br>
+        <p style="display: inline-block;">Network---   </p>
+        <p style="display: inline-block;" class="text-warning"><%= showInfo.network %></p>
+        <br>
+        <p style="display: inline-block;">Premier Date---   </p>
+        <p style="display: inline-block;" class="text-warning"><%= showInfo.premiereDate %></p>
+        <br>
+        <p style="display: inline-block;">Executive Producers---</p>
+        <% for(let i=0; i<showInfo.genre.length;i++){ %>
+          <p style="display: inline-block;" class="text-warning"><%= showInfo.executiveProducers[i] %> | </p>
+        <% } %>
+        <br>
+        <p style="display: inline-block;">IMDb Rating---   </p>
+        <p style="display: inline-block;" class="text-warning"><%= showInfo.rating %>/10</p>
+
+        </div>
+      </div>
+
+      <!---->
+      <div class="container p-4 my-4">
+        <div class="row">
+          <div class="col-sm-6 bg-white border pt-3">
+            <h3>Season 1 Episodes</h3>
+            <br>
+            <% seasonOne.forEach((item)=>{ %>
+            <p class="text-warning"><%= item.episodeNumber %>. <%= item.episodeTitle %></p>
+            <p><%= item.synopsis %></p>
+            <br>
+            <% }) %>
+          </div>
+          <div class="col-sm-6 bg-secondary text-white pt-3">
+            <h3>Season 2 Episodes</h3>
+            <br>
+            <% seasonTwo.forEach((item)=>{ %>
+            <p class="text-warning"><%= item.episodeNumber %>. <%= item.episodeTitle %></p>
+            <p><%= item.synopsis %></p>
+            <br>
+            <% }) %>
+          </div>
+        </div>
+      </div>
+
+      <!---->
+      <div class="container p-3 my-1 text-dark">
+        <h1>Main Cast</h1>
+      </div>
+
+      <div class="container p-4 pt-2">
+        <div class="row">
+          <div class="col-sm-2 bg-white p-3">
+            <img class="mx-auto d-block rounded-circle" src="/cast-photos/13-christine-baranski.jpg" width="auto" height="75">
+            <br>
+            <img class="mx-auto d-block rounded-circle" src="/cast-photos/14-kelley-curran.jpg" width="auto" height="75">
+            <br>
+            <img class="mx-auto d-block rounded-circle" src="/cast-photos/16-donna-murphy.jpg" width="auto" height="75">
+            <br>
+            <img class="mx-auto d-block rounded-circle" src="/cast-photos/18-audra-mcdonald.jpg" width="auto" height="75">
+            <br>
+            <img class="mx-auto d-block rounded-circle" src="/cast-photos/34-cynthia-nixon.jpg" width="auto" height="75">
+            <br>
+            <img class="mx-auto d-block rounded-circle" src="/cast-photos/36-blake-ritson.jpg" width="auto" height="75">
+            <br>
+            <img class="mx-auto d-block rounded-circle" src="/cast-photos/43-denee-benton.jpg" width="auto" height="75">
+            <br>
+            <img class="mx-auto d-block rounded-circle" src="/cast-photos/44-harry-richardson.jpg" width="auto" height="75">
+            <br>
+            <img class="mx-auto d-block rounded-circle" src="/cast-photos/45-jack-gilpin.jpg" width="auto" height="75">
+            <br>
+            <img class="mx-auto d-block rounded-circle" src="/cast-photos/46-simon-jones.jpg" width="auto" height="75">
+            <br>
+            <img class="mx-auto d-block rounded-circle" src="/cast-photos/47-taissa-farmiga.jpg" width="auto" height="75">
+          </div>
+
+          <div class="col-sm-4 bg-white pt-4">
+            <% castObject.forEach((item)=>{ %>
+              <% if (item.id===47 || item.id===46 || item.id===45 || item.id===44 || item.id===43 || item.id===36 || item.id===34 || item.id===18 || item.id===16 || item.id===14 || item.id===13) { %>
+                <h5 class="text-dark pt-3"><%= item.actor %></h5>
+                <h7 class="text-secondary"><%= item.character %></h7>
+                <br>
+                <br>
+              <% } %>
+            <% }) %>
+          </div>
+
+          <div class="col-sm-2 bg-white pt-2 p-4">
+            <img class="mx-auto d-block rounded-circle" src="/cast-photos/1-ben-ahlers.jpg" width="auto" height="75">
+            <br>
+            <img class="mx-auto d-block rounded-circle" src="/cast-photos/3-kelli-ohara.jpg" width="auto" height="75">
+            <br>
+            <img class="mx-auto d-block rounded-circle" src="/cast-photos/4-taylor-richardson.jpg" width="auto" height="75">
+            <br>
+            <img class="mx-auto d-block rounded-circle" src="/cast-photos/5-carrie-coon.jpg" width="auto" height="75">
+            <br>
+            <img class="mx-auto d-block rounded-circle" src="/cast-photos/6-morgan-spector.jpg" width="auto" height="75">
+            <br>
+            <img class="mx-auto d-block rounded-circle" src="/cast-photos/7-louisa-jacobson.jpg" width="auto" height="75">
+            <br>
+            <img class="mx-auto d-block rounded-circle" src="/cast-photos/8-celia-keenan-bolger.jpg" width="auto" height="75">
+            <br>
+            <img class="mx-auto d-block rounded-circle" src="/cast-photos/9-kristine-nielsen.jpg" width="auto" height="75">
+            <br>
+            <img class="mx-auto d-block rounded-circle" src="/cast-photos/11-douglas-sills.jpg" width="auto" height="75">
+            <br>
+            <img class="mx-auto d-block rounded-circle" src="/cast-photos/12-michael-cerveris.jpg" width="auto" height="75">
+          </div>
+
+          <div class="col-sm-4 bg-white pt-3">
+            <% castObject.forEach((item)=>{ %>
+              <% if (item.id===11 || item.id===12 || item.id===9 || item.id===8 || item.id===7 || item.id===6 || item.id===5 || item.id==4 || item.id===3 || item.id===1) { %>
+                <h5 class="text-dark pt-3"><%= item.actor %></h5>
+                <h7 class="text-secondary"><%= item.character %></h7>
+                <br>
+                <br>
+              <% } %>
+            <% }) %>
+          </div>
+        </div>
+      </div>
+
+      <!---->
+      <footer>
+        <%- include('../partials/footer'); %>
+      </footer>
+
+  </div>
+
+  
+    
+  </body>
+</html>
